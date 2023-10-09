@@ -1,3 +1,4 @@
+<%= render 'layouts/navigation' %>
 <h1> List of users </h1><br>
 <p>
 <div class="flickr_pagination">
@@ -10,8 +11,9 @@
             <th>Username</th>
             <th>E mail</th>
             <th>No of articles</th>
+                <th>Joined</th>
             <th colspan="3">Action</th>
-                        <th>Joined</th>
+                    
 
             </tr>
         </thead>
@@ -23,11 +25,14 @@
             <td><%= link_to user.username, user %></td>
             <td><%= user.email %></td>
             <td><%= pluralize(user.articles.count, "article") %></td>
+          <td><small><%= time_ago_in_words(user.created_at)%> ago</small></td>
              <td><%= link_to 'Show', user %></td>
+
+<% if logged_in? && @user == current_user %>
+        
             <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Delete', user_path(user.id), data: { turbo_method: :delete , turbo_confirm: "Are you sure?" }
-        %></td>      
-        <td><small><%= time_ago_in_words(user.created_at)%> ago</small></td>
+        %></td>  <% end %>    
           </tr>
 
               <% end %>
