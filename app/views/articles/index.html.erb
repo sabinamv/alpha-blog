@@ -11,3 +11,25 @@
 <%= will_paginate @articles, :container => false %>
   </div>
         </p>
+
+<p>
+<ul>
+<% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to 'Home', root_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Logout', logout_path,  method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Log in', login_path %>
+        </li>
+      <li class="nav-item">
+          <%= link_to 'Sign up', signup_path %>
+        </li>
+      <% end %>
+      </ul>
+
+
+</p>

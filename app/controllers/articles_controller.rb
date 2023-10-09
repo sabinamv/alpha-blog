@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params) #simply call method from private
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       redirect_to @article
     end

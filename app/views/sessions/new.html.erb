@@ -1,10 +1,7 @@
- 
-<%= form_with(model: @user, local: true) do |f| %>
+<h1> Log in </h1>
 
-  <p>
-    <%= f.label :username %><br/>
-    <%= f.text_field :username %>
-  </p>
+ 
+<%= form_with(scope: :session, url: login_path, local: true) do |f| %>
 
   <p>
     <%= f.label :email %><br/>
@@ -18,7 +15,7 @@
 
   <p>
     
-    <%= f.submit %>
+    <%= f.submit "Log in" %>
   </p>
 
 <% end %>
