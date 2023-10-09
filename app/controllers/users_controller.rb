@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
+  before_action only: [:show, :index, :new, :edit, :update, :destroy] #where is method used
 
   def show
     @user = User.find(params[:id])
     @articles = @user.articles
+  end
+
+  def index
+    @users = User.all
   end
 
   def new
@@ -31,6 +36,13 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+  def destroy
+    @user = User.find(params[:id])
+    if @user.present?
+      @user.destroy
+    end
+    redirect_to users_path
   end
 
   private
