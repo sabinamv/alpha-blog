@@ -1,4 +1,9 @@
 <h1> List of users </h1><br>
+<p>
+<div class="flickr_pagination">
+<%= will_paginate @users, :container => false %>
+  </div></p>
+
 <table border="2px";>
     <thead>
         <tr>
@@ -28,4 +33,8 @@
               <% end %>
         </tbody> 
     </table>
- 
+    <p>
+    <div class="flickr_pagination">
+<%= will_paginate @articles, :container => false %>
+  </div>
+ </p>

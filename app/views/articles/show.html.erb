@@ -1,4 +1,7 @@
 <H1>Details</h1>
+<div class="flickr_pagination">
+<%= will_paginate @article, :container => false %>
+  </div>
 
 <p>Title: <%= @article.title %>  </p>
 <p>Description: <%= @article.description %>  </p>
@@ -7,3 +10,6 @@
 <%= link_to 'Delete', article_path(@article), data:{ turbo_method: :delete , turbo_confirm: "Are you sure?" } %> |
 <%= link_to 'Return to articles listing', articles_path(@article) %>|
 
+<div class="flickr_pagination">
+<%= will_paginate @article, :container => false %>
+  </div>

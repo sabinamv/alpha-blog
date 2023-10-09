@@ -1,5 +1,13 @@
 <br>All articles
-
+<p><div class="flickr_pagination">
+<%= will_paginate @articles, :container => false %>
+  </div></p>
 <%= render 'article' %>
 <p>
     <%= link_to 'Create new article', new_article_path %></p>
+    <BR>
+    <p> 
+        <div class="flickr_pagination">
+<%= will_paginate @articles, :container => false %>
+  </div>
+        </p>
