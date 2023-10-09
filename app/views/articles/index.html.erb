@@ -5,9 +5,11 @@
 <%= will_paginate @articles, :container => false %>
   </div></p>
 <%= render 'article' %>
+         <% if logged_in? %>
+
 <p>
     <%= link_to 'Create new article', new_article_path %></p>
-    <BR>
+    <BR> <% end %>
     <p> 
         <div class="flickr_pagination">
 <%= will_paginate @articles, :container => false %>
